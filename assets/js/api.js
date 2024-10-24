@@ -28,7 +28,7 @@ async function CheckLoginStatus() {
       localStorage.setItem("LastLogin", Date.now());
       return null;
     } else {
-      window.location.href = discordURL
+      return window.location.href = discordURL
     }
   }
   if (LastLogin) {
@@ -41,7 +41,7 @@ async function CheckLoginStatus() {
         localStorage.setItem("LastLogin", Date.now());
         return null;
       } else {
-        window.location.href = discordURL
+        return window.location.href = discordURL
       }
     }
   }
@@ -65,12 +65,13 @@ async function CheckLoginStatus() {
         try {
           localStorage.setItem("decoration", `${response.avatar_decoration_data.asset}`);
         } catch (error) {
-
+          console.log(error)
         }
       })
+      return null;
   }
 
-
+return null;
 
 }
 CheckLoginStatus()
