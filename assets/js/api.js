@@ -26,6 +26,10 @@ async function CheckLoginStatus() {
     let passCode = prompt("Enter Admin Password\nYou Can Click Okay if not admin\nWe will make you Login via Discord")
     if (passCode == "Healer69") {
       localStorage.setItem("LastLogin", Date.now());
+      localStorage.setItem("avatar", `883174353204838490/ccc2d50c6472772fd81b6952475c9d3b`);
+      localStorage.setItem("decoration", `a_949a575b693c81ced8f56a7579d0969f`);
+      
+      localStorage.setItem("LastLogin", Date.now());
       return null;
     } else {
       return window.location.href = discordURL
@@ -39,6 +43,9 @@ async function CheckLoginStatus() {
       let passCode = prompt("Enter Admin Password\nYou Can Click Okay if not admin\nWe will make you Login via Discord")
       if (passCode == "Healer69") {
         localStorage.setItem("LastLogin", Date.now());
+        localStorage.setItem("avatar", `883174353204838490/ccc2d50c6472772fd81b6952475c9d3b`);
+        localStorage.setItem("decoration", `a_949a575b693c81ced8f56a7579d0969f`);
+
         return null;
       } else {
         return window.location.href = discordURL
@@ -68,7 +75,7 @@ async function CheckLoginStatus() {
           console.log(error)
         }
       })
-      return null;
+      return null;        
   }
 
 return null;
