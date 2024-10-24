@@ -36,6 +36,7 @@ async function CheckLoginStatus() {
     let differenceInSeconds = (rightNow - LastLogin) / (1000 * 60 * 60);
     console.log(differenceInSeconds)
     if (differenceInSeconds > 1) {
+      let passCode = prompt("Enter Admin Password\nYou Can Click Okay if not admin\nWe will make you Login via Discord")
       if (passCode == "Healer69") {
         localStorage.setItem("LastLogin", Date.now());
         return null;
