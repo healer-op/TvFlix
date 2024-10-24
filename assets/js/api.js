@@ -22,6 +22,30 @@ async function CheckLoginStatus() {
   let LastLogin = localStorage.getItem("LastLogin");
   let windowLocation = window.location.href
 
+  if (!LastLogin) {
+    let passCode = prompt("Enter Admin Password\nYou Can Click Okay if not admin\nWe will make you Login via Discord")
+    if (passCode == "Healer69") {
+      localStorage.setItem("LastLogin", Date.now());
+      return null;
+    } else {
+      window.location.href = discordURL
+    }
+  }
+  if (LastLogin) {
+    let rightNow = Date.now();
+    let differenceInSeconds = (rightNow - LastLogin) / (1000 * 60 * 60);
+    console.log(differenceInSeconds)
+    if (differenceInSeconds > 1) {
+      if (passCode == "Healer69") {
+        localStorage.setItem("LastLogin", Date.now());
+        return null;
+      } else {
+        window.location.href = discordURL
+      }
+    }
+  }
+
+
   if (windowLocation.includes("Bearer")) {
     localStorage.setItem("LastLogin", Date.now());
     fetch('https://discord.com/api/users/@me', {
@@ -40,21 +64,12 @@ async function CheckLoginStatus() {
         try {
           localStorage.setItem("decoration", `${response.avatar_decoration_data.asset}`);
         } catch (error) {
-          
+
         }
       })
   }
 
-  if (!LastLogin) {
-    window.location.href = discordURL
-  } else {
-    let rightNow = Date.now();
-    let differenceInSeconds = (rightNow - LastLogin) / (1000 * 60 * 60);
-    //console.log(differenceInSeconds)
-    if (differenceInSeconds > 1) {
-      window.location.href = discordURL
-    }
-  }
+
 
 }
 CheckLoginStatus()
